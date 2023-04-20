@@ -29,13 +29,15 @@ int main(void)
 
    GPIO_Init(&GPIOxLed);
 
-   GPIO_PeriClockCtr(GPIOC, ENABLE );
 
-   GPIO_Btn.pGPIOx = GPIOC;
-   GPIO_Btn.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_10;
+
+   GPIO_Btn.pGPIOx = GPIOA;
+   GPIO_Btn.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_5;
    GPIO_Btn.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN;
-   GPIO_Btn.GPIO_PinConfig.GPIO_PinInterrupt = GPIO_MODE_IT_RT;
+   GPIO_Btn.GPIO_PinConfig.GPIO_PinInterrupt = GPIO_MODE_IT_FT;
    GPIO_Btn.GPIO_PinConfig.GPIO_PinInType = GPIO_InPuPd;
+
+   //GPIO_PeriClockCtr(GPIOA, ENABLE );
 
    GPIO_Init(&GPIO_Btn);
 
@@ -43,21 +45,20 @@ int main(void)
    GPIO_Btn.pGPIOx->GPIOx_ODR |= (1 <<  GPIO_Btn.GPIO_PinConfig.GPIO_PinNumber);
 
    //IRQ configuration
-   GPIO_IRQInterruptConfig(IRQ_NO_EXTI15_10, ENABLE);
-   GPIO_IRQPriorityConfig(IRQ_NO_EXTI15_10, NVIC_IRQ_PRIORITY1);
+   GPIO_IRQPriorityConfig(IRQ_NO_EXTI5_9, NVIC_IRQ_PRIORITY15);
+
+   GPIO_IRQInterruptConfig(IRQ_NO_EXTI5_9, ENABLE);
+
    while(1){
-	   GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_1, ENABLE);
+	  // GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_1, ENABLE);
    }
 
    return 0;
 
-
-
-
 }
 
 
-void EXTI15_10_IRQHandler(void){
-	GPIO_IRQHandling(10);//clear the pending event from the exti line
+void EXTI9_5_IRQHandler(void){
+	GPIO_IRQHandling(5);//clear the pending event from the exti line
 	GPIO_ToggleOutputPin(GPIOA, GPIO_PIN_1);
 }

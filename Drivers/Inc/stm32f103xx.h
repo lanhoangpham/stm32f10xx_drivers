@@ -58,7 +58,13 @@
 /**
  * ARM Cortex M3 Processor NVIC_IPR register Addresses
  */
-#define NVIC_IPR					((__vo uint32_t*)0xE000E400 )
+#define NVIC_IPR_BASEADDR			0xE000E400U
+
+typedef struct{
+	uint32_t NVIC_IPR_ARR[60];
+}NVIC_IPR_RefDef_t;
+
+#define NVIC_IPR					((NVIC_IPR_RefDef_t*)NVIC_IPR_BASEADDR)
 
 #define NO_PR_BITS_IMPLEMENTED		4
 
