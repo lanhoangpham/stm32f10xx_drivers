@@ -5,17 +5,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/004ExternalButtonInterrupt.c \
+../Src/005SPI_test_sendData.c \
 ../Src/syscalls.c \
 ../Src/sysmem.c 
 
 OBJS += \
-./Src/004ExternalButtonInterrupt.o \
+./Src/005SPI_test_sendData.o \
 ./Src/syscalls.o \
 ./Src/sysmem.o 
 
 C_DEPS += \
-./Src/004ExternalButtonInterrupt.d \
+./Src/005SPI_test_sendData.d \
 ./Src/syscalls.d \
 ./Src/sysmem.d 
 
@@ -27,7 +27,7 @@ Src/%.o Src/%.su Src/%.cyclo: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/004ExternalButtonInterrupt.cyclo ./Src/004ExternalButtonInterrupt.d ./Src/004ExternalButtonInterrupt.o ./Src/004ExternalButtonInterrupt.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+	-$(RM) ./Src/005SPI_test_sendData.cyclo ./Src/005SPI_test_sendData.d ./Src/005SPI_test_sendData.o ./Src/005SPI_test_sendData.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
 
 .PHONY: clean-Src
 

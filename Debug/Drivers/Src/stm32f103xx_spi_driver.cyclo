@@ -1,0 +1,6 @@
+stm32f103xx_spi_driver.c:9:6:SPI_PCLK_CTRL	8
+stm32f103xx_spi_driver.c:34:6:SPI_Init	5
+stm32f103xx_spi_driver.c:79:9:SPI_GetFlagStatus	1
+stm32f103xx_spi_driver.c:84:6:SPI_SendData	4
+stm32f103xx_spi_driver.c:113:6:SPI_PeripheralCtrl	2
+stm32f103xx_spi_driver.c:121:6:SPI_SSICtr	2

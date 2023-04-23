@@ -50,7 +50,7 @@ int main(void)
    GPIO_IRQInterruptConfig(IRQ_NO_EXTI5_9, ENABLE);
 
    while(1){
-	  // GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_1, ENABLE);
+	  //c2xc GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_1, ENABLE);
    }
 
    return 0;

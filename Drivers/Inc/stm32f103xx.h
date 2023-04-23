@@ -14,6 +14,7 @@
 
 #include<stdint.h>
 
+
 #define __vo 						volatile
 
 /*******************************START: Processor Specific Details*******************************/
@@ -160,6 +161,27 @@ typedef struct {
 	__vo uint32_t AFIO_MAPR2;
 }AFIO_RegDef_t;
 
+
+
+typedef struct{
+	__vo uint32_t SPI_CR1;
+	__vo uint32_t SPI_CR2;
+	__vo uint32_t SPI_SR;
+	__vo uint32_t SPI_DR;
+	__vo uint32_t SPI_CRCPR;
+	__vo uint32_t SPI_RXCRCR;
+	__vo uint32_t PI_TXCRCR;
+	__vo uint32_t SPI_I2SCFGR;
+	__vo uint32_t SPI_I2SPR;
+}SPI_RegDef_t;
+
+
+/**
+ * Peripheral definitions ( peripheral base address typecasted to SPI_RegDef_t)
+ */
+#define SPI1							((SPI_RegDef_t*)SPI1_BASEADDR)
+#define SPI2							((SPI_RegDef_t*)SPI2_BASEADDR)
+#define SPI3							((SPI_RegDef_t*)SPI3_BASEADDR)
 
 /**
  * Peripheral definitions ( peripheral base address typecasted to AFIO_RegDef_t)

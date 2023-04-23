@@ -82,7 +82,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 	//configure for output mode and alternate function
 	else if (pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == 1){
 
-		temp = ((pGPIOHandle->GPIO_PinConfig.GPIO_PinOutPpOp) << 2) + pGPIOHandle->GPIO_PinConfig.GPIO_PinSpeed;
+		temp = ((pGPIOHandle->GPIO_PinConfig.GPIO_PinOP_AltFunc_PpOp) << 2) + pGPIOHandle->GPIO_PinConfig.GPIO_PinSpeed;
 
 	}
 
@@ -161,19 +161,19 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 
 void GPIO_DeInit(GPIO_RegDef_t *pGPIOx){
 	if (pGPIOx == GPIOA){
-		GPIOA_PCLK_EN();
+		GPIOA_REG_RESET();
 	}
 	if (pGPIOx == GPIOB){
-		GPIOB_PCLK_EN();
+		GPIOB_REG_RESET();
 	}
 	if (pGPIOx == GPIOC){
-		GPIOC_PCLK_EN();
+		GPIOC_REG_RESET();
 	}
 	if (pGPIOx == GPIOD){
-		GPIOD_PCLK_EN();
+		GPIOD_REG_RESET();
 	}
 	if (pGPIOx == GPIOE){
-		GPIOE_PCLK_EN();
+		GPIOE_REG_RESET();
 	}
 
 }
